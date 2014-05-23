@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hiker</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_new_track">NewTrack</string>
+    <string name="new_map_button">Start new track</string>
+
+</resources>

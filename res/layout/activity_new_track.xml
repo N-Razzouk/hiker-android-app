@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}" >
+
+    <fragment
+        android:id="@+id/newMap"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <Chronometer
+        android:id="@+id/newTrackClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Chronometer"
+        android:textSize="30sp" />
+
+    <ToggleButton
+        android:id="@+id/newTrackToggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="23dp"
+        android:text="ToggleButton"
+        android:textColor="#FF0000"
+        android:textOff="START"
+        android:textOn="PAUSE"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/newTrackStopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/newTrackToggleButton"
+        android:layout_alignBottom="@+id/newTrackToggleButton"
+        android:layout_centerHorizontal="true"
+        android:text="STOP" />
+
+    <ProgressBar
+        android:id="@+id/newTrackProgressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible" />
+
+</RelativeLayout>
