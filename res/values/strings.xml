@@ -5,5 +5,13 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_new_track">NewTrack</string>
     <string name="new_map_button">Start new track</string>
+    <string name="SASoftware">Scout Arad Software</string>
+    <string name="Hiker">HIKER</string>
+    <string name="GpsEnabled">Please make shure your GPS is enabled!</string>
+    <string name="NetworkEnabled">Please enable your Mobile Data</string>
+    <string name="NetworkEnabled2">or connect to a Wi-Fi network</string>
+    <string name="title_activity_list_tracks">ListTracks</string>
+    <string name="title_activity_new_map">NewMap</string>
+    <string name="title_activity_show_selected_map">ShowSelectedMap</string>
 
 </resources>

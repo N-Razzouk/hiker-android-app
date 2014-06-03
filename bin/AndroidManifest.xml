@@ -46,12 +46,25 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyA4Y1oz4iNAAwljQl2Edo4nSmuBDxJcJTk" />
-		<meta-data
-    		android:name="com.google.android.gms.version"
-    		android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name="scoutarad.android.hiker.NewTrack"
             android:label="@string/title_activity_new_track" >
+        </activity>
+        <activity
+            android:name="scoutarad.android.hiker.ListTracks"
+            android:label="@string/title_activity_list_tracks" >
+        </activity>
+        <activity
+            android:name="scoutarad.android.hiker.NewMap"
+            android:label="@string/title_activity_new_map" >
+        </activity>
+        <activity
+            android:name="scoutarad.android.hiker.ShowSelectedMap"
+            android:label="@string/title_activity_show_selected_map" >
         </activity>
     </application>
 

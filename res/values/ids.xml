@@ -2,4 +2,5 @@
 <resources>
     <item name="newMapFragment" type="id"></item>
     <item name="newMapButton" type="id"></item>
+    <item name="MapsView" type="id"></item>
 </resources>

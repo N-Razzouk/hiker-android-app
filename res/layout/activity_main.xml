@@ -4,35 +4,76 @@
     android:layout_height="match_parent"
     tools:context="${packageName}.${activityClass}" >
 
-    <Button
-        android:id="@+id/newMapButton"
+    <TextView
+        android:id="@+id/SASoftware"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="94dp"
-        android:onClick="onClick"
-        android:text="@string/new_map_button" />
+        android:layout_marginTop="18dp"
+        android:text="@string/SASoftware"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/Hiker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/SASoftware"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="@string/Hiker"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/GpsEnabled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Hiker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:text="@string/GpsEnabled"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/NetworkEnabled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GpsEnabled"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:text="HIKER"
-        android:textColor="#FF0000"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="@string/NetworkEnabled"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/NetworkEnabled"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="Scout Arad"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="@string/NetworkEnabled2"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/newMapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:onClick="onNewTrackClick"
+        android:text="Add new track" />
+
+    <Button
+        android:id="@+id/listTracksButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newMapButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:onClick="onListTracksClick"
+        android:text="List tracks" />
 
 </RelativeLayout>
