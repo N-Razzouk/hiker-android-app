@@ -31,6 +31,7 @@ public class NewMap extends Activity {
 		{
 			db.addMap(textfield.getText().toString());
 			Intent intent = new Intent(this, NewTrack.class);
+			intent.putExtra("MapName", textfield.getText().toString());
 	    	startActivity(intent);
 	    	Toast.makeText(getApplicationContext(), "Generating new track...", Toast.LENGTH_LONG).show();
 		}

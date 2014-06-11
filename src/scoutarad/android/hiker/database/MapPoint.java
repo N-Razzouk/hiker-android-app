@@ -4,15 +4,15 @@ public class MapPoint {
 
 	String _MapName;
 	int _PointNumber;
-	long _Latitude;
-	long _Longitude;
+	double _Latitude;
+	double _Longitude;
 	
 	//empty
 	MapPoint(){
 		
 	}
 	
-	MapPoint(String MapName, int PointNumber, long Latitude, long Longitude)
+	public MapPoint(String MapName, int PointNumber, double Latitude, double Longitude)
 	{
 		this._MapName = MapName;
 		this._PointNumber = PointNumber;
@@ -37,18 +37,18 @@ public class MapPoint {
 	}
 	
 	//Latitude
-	public long getLatitude(){
+	public double getLatitude(){
 		return this._Latitude;
 	}
-	public void setLatitude(long Latitude){
+	public void setLatitude(double Latitude){
 		this._Latitude = Latitude;
 	}
 	
 	//Longitude
-	public long getLongitude(){
+	public double getLongitude(){
 		return this._Longitude;
 	}
-	public void setLongitude(long Longitude){
+	public void setLongitude(double Longitude){
 		this._Longitude = Longitude;
 	}
 	

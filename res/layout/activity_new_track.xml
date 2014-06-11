@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" />
-
+    
     <Chronometer
         android:id="@+id/newTrackClock"
         android:layout_width="wrap_content"
@@ -54,5 +54,5 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:visibility="invisible" />
-
+    
 </RelativeLayout>

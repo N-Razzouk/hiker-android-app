@@ -20,6 +20,8 @@ public class MapsHandler extends SQLiteOpenHelper {
 	//TABLE COLUMNS
 	private static final String COLUMN_ID = "ID";
 	private static final String COLUMN_NAME = "Name";
+	private static final String COLUMN_TIME = "Time";
+	private static final String COLUMN_DISTANCE = "Distance";
 	
 	//SUPER CONSTRUCTOR
 	public MapsHandler(Context context){
@@ -33,7 +35,9 @@ public class MapsHandler extends SQLiteOpenHelper {
 				+ TABLE_NAME
 				+ "("
 				+ COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-				+ COLUMN_NAME + " TEXT"
+				+ COLUMN_NAME + " TEXT,"
+				+ COLUMN_TIME + " TEXT,"
+				+ COLUMN_DISTANCE + " REAL"
 				+ ");";
 		db.execSQL(CREATE_TABLE);
 		
@@ -49,7 +53,41 @@ public class MapsHandler extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		
 		values.put(COLUMN_NAME, MapName);
+		values.put(COLUMN_TIME, "0");
+		values.put(COLUMN_DISTANCE, "0");
 		db.insert(TABLE_NAME, null, values);
+		db.close();
+	}
+	
+	public List<String> getMap(String MapName)
+	{
+		SQLiteDatabase db = this.getWritableDatabase();
+		List<String> Map = new ArrayList<String>();
+		String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + " ='" + MapName +"';";
+		Cursor cursor = db.rawQuery(sqlQuery, null);
+		if(cursor.moveToFirst())
+		{
+			Map.add(0, cursor.getString(2));
+			Map.add(1, cursor.getString(3));
+		}
+		return Map;
+		
+	}
+	
+	public void updateMap(String MapName, String time, String distance)
+	{
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(COLUMN_TIME, time);
+		values.put(COLUMN_DISTANCE, distance);		
+		db.update(TABLE_NAME, values, COLUMN_NAME + " = '" + MapName + "';", null);
+		db.close();
+	}
+	
+	public void deleteMap(String MapName)
+	{
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(TABLE_NAME, COLUMN_NAME + " = '" + MapName + "';", null);
 		db.close();
 	}
 	

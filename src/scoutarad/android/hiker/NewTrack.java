@@ -1,5 +1,9 @@
 package scoutarad.android.hiker;
 
+import scoutarad.android.hiker.database.MapPoint;
+import scoutarad.android.hiker.database.MapPointsHandler;
+import scoutarad.android.hiker.database.MapsHandler;
+import scoutarad.android.hiker.Hiker;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -40,6 +44,8 @@ public class NewTrack extends Activity implements
 	private static final float MIN_DISTANCE = 20; //Meters
     private static final long UPDATE_INTERVAL = 5000;
     private static final long FASTEST_INTERVAL = 1000;
+    
+    private static double TOTAL_DISTANCE = 0;
 
     private static double LAST_LOC_LATITUDE;
     private static double LAST_LOC_LONGITUDE;
@@ -47,18 +53,18 @@ public class NewTrack extends Activity implements
     private int firstuse=1;
     private int currentLocation=0;
     private long lastPause;
+    private String MapName;
     
     private LocationClient locationClient;
     private LocationRequest locationRequest;
 	
     GoogleMap newMap;
-    Marker startMarker;
-    Marker endMarker;
     ProgressBar progressBar;
     ToggleButton toggleButton;
     Chronometer timer;
     Button stopButton;
-    
+    MapPointsHandler mapPointDatabase;
+    MapsHandler mapDatabase;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -123,11 +129,16 @@ public class NewTrack extends Activity implements
 				locationClient.disconnect();
 				
 				LatLng endLocation = new LatLng(LAST_LOC_LATITUDE, LAST_LOC_LONGITUDE);
-				endMarker = newMap.addMarker(new MarkerOptions()
+				newMap.addMarker(new MarkerOptions()
 	             .position(endLocation)
-	             .title("Start")
+	             .title("Finish")
 	             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 				toggleButton.setEnabled(false);
+
+				//Update field in database
+				String time = Hiker.getTime(SystemClock.elapsedRealtime() - timer.getBase());
+				String distance = String.valueOf(TOTAL_DISTANCE);
+				mapDatabase.updateMap(MapName, time, distance);
 			}
 		});
 	   
@@ -138,15 +149,29 @@ public class NewTrack extends Activity implements
 	{
 			LatLng previousLoc = new LatLng(LAST_LOC_LATITUDE, LAST_LOC_LONGITUDE);
 			currentLocation++;	
-			
 			double lat =  location.getLatitude();
 	        double lng = location.getLongitude();
 	        LatLng currentLoc = new LatLng(lat, lng);
 	        LAST_LOC_LATITUDE=lat;
 	        LAST_LOC_LONGITUDE=lng;
-
-	        @SuppressWarnings("unused")
-			Polyline polyline = newMap.addPolyline(new PolylineOptions().add(previousLoc, currentLoc).width(5).color(Color.RED));
+	        
+	        //Calculate distance
+	        float[] results = new float[3];
+	        
+	        Location.distanceBetween(previousLoc.latitude, previousLoc.longitude, 
+	        		currentLoc.latitude, currentLoc.longitude, results);
+	        
+	        TOTAL_DISTANCE += results[0];
+	        
+	        //secondary method for calculation (original WGS84)
+	        /*TOTAL_DISTANCE += Hiker.calculateDistance(previousLoc.latitude, previousLoc.longitude, 
+	        		currentLoc.latitude, currentLoc.longitude, "m");*/
+	        
+        	newMap.addPolyline(new PolylineOptions().add(previousLoc, currentLoc).width(5).color(Color.RED));
+	        
+	        //Add to DB
+	        MapPoint MapPoint = new MapPoint(MapName, currentLocation, lat, lng);
+	        mapPointDatabase.addMapPoint(MapPoint);
 	        
 	        //newMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLoc, 15));
 	        //writeon
@@ -156,6 +181,9 @@ public class NewTrack extends Activity implements
 	@Override
 	protected void onStart()
 	{
+	    MapName = getIntent().getExtras().getString("MapName");
+	    mapPointDatabase = new MapPointsHandler(this);
+	    mapDatabase = new MapsHandler(this);
 	    toggleButton.setChecked(false);	  
 		locationClient.connect();
 		super.onStart();
@@ -179,7 +207,6 @@ public class NewTrack extends Activity implements
             if (newMap == null) 
                 Toast.makeText(getApplicationContext(), "Sorry! unable to create maps", Toast.LENGTH_SHORT).show();
         }
-
     }	
     
     public void addStartPointer(Location location) {
@@ -191,12 +218,16 @@ public class NewTrack extends Activity implements
 
         LatLng startLocation = new LatLng(lat, lng);
 
-        startMarker = newMap.addMarker(new MarkerOptions()
+        newMap.addMarker(new MarkerOptions()
              .position(startLocation)
              .title("Start")
              .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));  
         
         newMap.animateCamera(CameraUpdateFactory.newLatLngZoom(startLocation, 15)); 
+        
+        //Add to DB
+        MapPoint MapPoint = new MapPoint(MapName, 0, lat, lng);
+        mapPointDatabase.addMapPoint(MapPoint);
     }
 
 	@Override
