@@ -1,9 +1,10 @@
-package scoutarad.android.hiker;
+package ro.scoutarad.hiker;
 
-import scoutarad.android.hiker.database.MapPoint;
-import scoutarad.android.hiker.database.MapPointsHandler;
-import scoutarad.android.hiker.database.MapsHandler;
-import scoutarad.android.hiker.Hiker;
+import ro.scoutarad.hiker.Hiker;
+import ro.scoutarad.hiker.database.MapPoint;
+import ro.scoutarad.hiker.database.MapPointsHandler;
+import ro.scoutarad.hiker.database.MapsHandler;
+import scoutarad.android.hiker.R;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;

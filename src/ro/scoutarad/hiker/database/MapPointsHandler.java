@@ -1,4 +1,4 @@
-package scoutarad.android.hiker.database;
+package ro.scoutarad.hiker.database;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,6 @@ public class MapPointsHandler extends SQLiteOpenHelper {
 		onCreate(db);		
 	}
 	
-	//TODO ADD addMapPoint, getMapPointsForMap
 	public void addMapPoint(MapPoint mapPoint) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues values = new ContentValues();

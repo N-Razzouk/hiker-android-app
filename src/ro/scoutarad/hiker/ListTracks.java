@@ -1,10 +1,11 @@
-package scoutarad.android.hiker;
+package ro.scoutarad.hiker;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import scoutarad.android.hiker.database.MapsHandler;
+import ro.scoutarad.hiker.database.MapsHandler;
+import scoutarad.android.hiker.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

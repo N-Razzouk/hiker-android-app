@@ -375,9 +375,9 @@ int id monochrome 0x7f070013
 int id never 0x7f07001c
 int id newMapButton 0x7f07002d
 int id newMapFragment 0x7f07002c
-int id newTrackButton 0x7f07005a
+int id newTrackButton 0x7f070059
 int id newTrackClock 0x7f07005b
-int id newTrackEditText 0x7f070059
+int id newTrackEditText 0x7f07005a
 int id newTrackProgressBar 0x7f07005e
 int id newTrackStopButton 0x7f07005d
 int id newTrackToggleButton 0x7f07005c
@@ -403,9 +403,9 @@ int id selectionDetails 0x7f07000b
 int id shortcut 0x7f070044
 int id showCustom 0x7f07001a
 int id showHome 0x7f070017
-int id showMapDistance 0x7f07005f
+int id showMapDistance 0x7f070060
 int id showMapFragment 0x7f07002f
-int id showMapTime 0x7f070060
+int id showMapTime 0x7f07005f
 int id showTitle 0x7f070019
 int id split_action_bar 0x7f070034
 int id strict_sandbox 0x7f070009

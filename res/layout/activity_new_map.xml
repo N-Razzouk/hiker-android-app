@@ -3,7 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="${packageName}.${activityClass}" >
-    
+
+    <Button
+        android:id="@+id/newTrackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="161dp"
+        android:onClick="onNewClick"
+        android:text="@string/new_map_button" />
+
     <EditText
         android:id="@+id/newTrackEditText"
         android:layout_width="wrap_content"
@@ -11,18 +21,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:ems="10" >
-        <requestFocus />
-    </EditText>
-
-    <Button
-        android:id="@+id/newTrackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/newTrackEditText"
-        android:layout_centerHorizontal="true"
-        android:text="@string/new_map_button"
-        android:onClick="onNewClick" />
+        android:layout_marginTop="94dp"
+        android:ems="10" />
 
 </RelativeLayout>

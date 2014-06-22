@@ -1,11 +1,12 @@
-package scoutarad.android.hiker;
+package ro.scoutarad.hiker;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import scoutarad.android.hiker.database.MapPoint;
-import scoutarad.android.hiker.database.MapPointsHandler;
-import scoutarad.android.hiker.database.MapsHandler;
+import ro.scoutarad.hiker.database.MapPoint;
+import ro.scoutarad.hiker.database.MapPointsHandler;
+import ro.scoutarad.hiker.database.MapsHandler;
+import scoutarad.android.hiker.R;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

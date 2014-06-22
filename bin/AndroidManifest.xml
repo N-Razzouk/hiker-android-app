@@ -34,7 +34,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="scoutarad.android.hiker.MainActivity"
+            android:name="ro.scoutarad.hiker.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,19 +51,19 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="scoutarad.android.hiker.NewTrack"
+            android:name="ro.scoutarad.hiker.NewTrack"
             android:label="@string/title_activity_new_track" >
         </activity>
         <activity
-            android:name="scoutarad.android.hiker.ListTracks"
+            android:name="ro.scoutarad.hiker.ListTracks"
             android:label="@string/title_activity_list_tracks" >
         </activity>
         <activity
-            android:name="scoutarad.android.hiker.NewMap"
+            android:name="ro.scoutarad.hiker.NewMap"
             android:label="@string/title_activity_new_map" >
         </activity>
         <activity
-            android:name="scoutarad.android.hiker.ShowSelectedMap"
+            android:name="ro.scoutarad.hiker.ShowSelectedMap"
             android:label="@string/title_activity_show_selected_map" >
         </activity>
     </application>

@@ -1,4 +1,4 @@
-package scoutarad.android.hiker.database;
+package ro.scoutarad.hiker.database;
 
 public class MapPoint {
 
